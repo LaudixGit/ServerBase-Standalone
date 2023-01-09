@@ -1,0 +1,148 @@
+/* https://www.w3schools.com/howto/howto_js_tabs.asp */
+
+:root {
+  /* set css variables https://developer.mozilla.org/en-US/docs/Web/CSS/var */
+  --toggleHeightSize: 16px;
+}
+
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+/* for a toggle switch https://alvarotrigo.com/blog/toggle-switch-css/ */
+.toggle {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.toggle-switch {
+  display: inline-block;
+  background: #ccc;
+  border-radius: calc(var(--toggleHeightSize)/2);
+  width: calc(var(--toggleHeightSize)*1.9);
+  height: var(--toggleHeightSize);
+  position: relative;
+  vertical-align: middle;
+  transition: background 0.25s;
+}
+.toggle-switch:before, .toggle-switch:after {
+  content: "";
+}
+.toggle-switch:before {
+  display: block;
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  width: calc(var(--toggleHeightSize) - var(--toggleHeightSize)/4);
+  height: calc(var(--toggleHeightSize) - var(--toggleHeightSize)/4);
+  position: absolute;
+  top:  calc(var(--toggleHeightSize)/8);
+  left: calc(var(--toggleHeightSize)/8);
+  transition: left 0.25s;
+}
+.toggle:hover .toggle-switch:before {
+  background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.toggle-checkbox:checked + .toggle-switch {
+  background: #56c080;
+}
+.toggle-checkbox:checked + .toggle-switch .toggle-checkMark {
+  opacity: 1;
+  transition: opacity $speed ease-in-out;
+}
+.toggle-checkbox:checked + .toggle-switch:before {
+  left: calc(var(--toggleHeightSize));
+}
+
+
+.toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.toggle-checkMark {
+  fill: #fff;
+  font-size: calc(var(--toggleHeightSize)*.65);
+  position: relative;
+  left: calc(var(--toggleHeightSize) + var(--toggleHeightSize)/8);
+  opacity: .1;
+  transition: opacity $speed ease-in-out;
+  display: flex;
+  align-items: center;
+  /* this would work if suported by Chrome top: calc(pow(2, (log(var(--toggleHeightSize),2)-3))); */
+}
+
+.toggle-label {
+  margin-left: 5px;
+  position: relative;
+  top: 2px;
+}
+
+/* For Button-style checkbox */
+/* https://stackoverflow.com/questions/38377062/how-to-make-html-button-look-pressed-in-using-css */
+label.button-checkbox {
+  cursor: pointer;
+}
+
+label.button-checkbox input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+label.button-checkbox span {
+  padding: 1px 5px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  color: #202020;
+  border-radius: 25%;
+  margin: 1px;
+  background: #f5f5f5;
+  user-select: none;
+  font-size: calc(.65em);
+}
+
+label.button-checkbox input:checked + span {
+  color: #00BB00;
+  box-shadow: inset 1px 2px 5px #777;
+  transform: translateY(1px);
+  background: #e5e5e5;
+}

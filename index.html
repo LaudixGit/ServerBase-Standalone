@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- https://www.w3schools.com/howto/howto_js_tabs.asp -->
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ESP Server Base</title>
+  <link rel="stylesheet" href="/default.css">
+  <script src="/default.js"></script>
+<style>
+</style>
+</head>
+<body>
+    <div>
+        <small>Compiled:   %CompDate%  %CompTime% - %CompFile%</small></br>
+        <hr>
+        Server Time: <span id="serverTime"></span></br>
+        <hr>
+        <label for="rx_led" title="Click to turn on/off the light on the device">RX</label><input id="rx_led" type="checkbox" onchange="systemStatusSend()"/>  <label for="tx_led">TX</label><input id="tx_led" type="checkbox" onchange="systemStatusSend()" disabled title="TX LED is disabled here because it is controlled by the Schedule"/>
+    </div>
+  <hr>
+  <a href="/config">Configuration</a>   <a href="/directory">Directory</a>
+  <hr>
+   
+</body>
+</html> 
